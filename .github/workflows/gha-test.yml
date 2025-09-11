@@ -1,0 +1,27 @@
+name: Github Actions Test
+
+on:
+  push:
+    branches: [ "main","master" ]
+  pull_request:
+    branches: [ "main","master" ]
+
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    name: Echo Some Lines
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Files
+        uses: actions/checkout@v4
+
+      - name: Print out single line
+        run: echo Testing GH Actions
+
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
